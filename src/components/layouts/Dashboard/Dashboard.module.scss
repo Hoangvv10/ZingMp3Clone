@@ -1,0 +1,188 @@
+.wrapper {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    bottom: 0;
+    background-color: #170f23;
+    height: 90px;
+    border-top: dotted 1px hsla(0, 0%, 100%, 0.05);
+    padding-right: 20px;
+}
+
+.inner {
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    color: #fff;
+}
+
+.inner,
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    height: 64px;
+    flex: 1;
+    background-color: transparent;
+}
+
+.song-img {
+    border-radius: 4px;
+    width: 64px;
+    height: 64px;
+    margin-right: 10px;
+}
+
+.info {
+    margin-right: 20px;
+}
+
+.info > h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.info > p {
+    font-size: 1.2rem;
+    color: hsla(0, 0%, 100%, 0.5);
+}
+
+.dashboard-action:hover {
+    background-color: hsla(0, 0%, 100%, 0.5);
+}
+
+.middle {
+    flex: 2;
+    align-items: center;
+    text-align: center;
+}
+
+button[disabled='disabled'],
+button:disabled {
+    opacity: 0.2;
+    cursor: not-allowed !important;
+}
+
+button[disabled='disabled'],
+button:disabled:hover {
+    opacity: 0.2;
+    cursor: not-allowed !important;
+    background-color: transparent;
+}
+
+.right {
+    flex: 1;
+}
+
+.duration-inner,
+.duration-bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.duration-bar {
+    width: 80%;
+    margin-bottom: 8px;
+    height: 15px;
+}
+
+.volume-up,
+.duration-up {
+    position: relative;
+    background-color: #2f2739;
+    height: 3px;
+    border-radius: 4px;
+}
+
+.duration-up {
+    margin-top: 8px;
+    width: 80%;
+}
+
+.duration-up:hover,
+.volume-up:hover {
+    height: 5px;
+    cursor: pointer;
+}
+
+.volume-down,
+.duration-bottom {
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    border-radius: 4px;
+}
+
+.start {
+    left: 126px;
+    color: hsla(0deg, 0%, 100%, 0.5);
+}
+
+.start,
+.end {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 1px;
+}
+
+.end {
+    right: 128px;
+}
+
+.knob,
+.volume-knob {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: -3.5px;
+    background-color: #fff;
+    z-index: 10;
+    display: none;
+}
+
+.duration-up:hover .knob,
+.volume-up:hover .volume-knob {
+    display: block;
+}
+
+// right
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.right > button,
+.left > button {
+    font-size: 1.4rem;
+    background-color: transparent;
+}
+
+.right > button:hover,
+.left > button:hover {
+    cursor: pointer;
+    background-color: hsla(0deg, 0%, 100%, 0.5);
+}
+
+.muted-btn {
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.volume-inner {
+    width: 70px;
+}
+
+.volume-down,
+.volume-knob {
+    right: 0%;
+}

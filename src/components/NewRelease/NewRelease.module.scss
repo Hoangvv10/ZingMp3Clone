@@ -1,0 +1,95 @@
+.wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    margin-top: 28px;
+}
+
+.inner {
+    width: 100%;
+    color: #fff;
+}
+
+.header {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.release-btn {
+    margin-bottom: 16px;
+}
+
+.btn {
+    padding: 4px 24px;
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-radius: 100px;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+}
+
+.active {
+    border-color: #9b4de0;
+    background-color: #9b4de0;
+}
+
+.songs {
+    display: -moz-flex;
+    display: flex;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    box-lines: multiple;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0 -15px;
+}
+
+.song {
+    position: relative;
+    width: 33.33%;
+    align-items: center;
+    display: flex;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 1.4rem;
+}
+
+.song:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.song:hover .song-hover {
+    display: block;
+}
+
+.song-img {
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 60px;
+    height: 60px;
+}
+
+.song-singer,
+.date {
+    font-size: 12px;
+    margin-top: 3px;
+    color: hsla(0, 0%, 100%, 0.5);
+}
+
+.song-hover {
+    position: absolute;
+    left: 34px;
+    font-size: 1.8rem;
+    display: none;
+    cursor: pointer;
+}

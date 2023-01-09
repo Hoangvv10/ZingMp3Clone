@@ -1,0 +1,60 @@
+.btn,
+.play-btn {
+    color: white;
+    margin: 0 7px;
+}
+
+.btn {
+    padding: 3px;
+    margin: 0 7px;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.nav-btn {
+    padding: 5px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    background-color: hsla(0, 0%, 100%, 0.05);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.navigate {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // margin-bottom: 10px;
+}
+
+.play-btn {
+    border-radius: 50%;
+    border: #fff 2px solid;
+    font-size: 1.6rem;
+    width: 40px;
+    height: 40px;
+}
+
+.btnActive {
+    color: #9b4de0;
+}
+
+.repeatNum {
+    position: absolute;
+    top: 16px;
+    right: 8px;
+    color: #9b4de0;
+    font-size: 1.4rem;
+    border-radius: 999px;
+    background-color: #170f23;
+    display: none;
+}
+
+.btnActive2 {
+    display: block;
+    color: #9b4de0;
+}

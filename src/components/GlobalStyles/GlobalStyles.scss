@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital@0;1&family=Inter:wght@200;300;400;500;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+    color: var(--text-color);
+    overflow-y: overlay;
+}
+
+html ::-webkit-scrollbar {
+    width: 6px;
+}
+
+html ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #ffffff4d;
+}
+
+html ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset #fff;
+    border-radius: 4px;
+}
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+
+    &:hover {
+        color: #9b4de0;
+        text-decoration: underline;
+    }
+}

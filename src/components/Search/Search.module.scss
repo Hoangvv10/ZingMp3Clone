@@ -1,0 +1,92 @@
+.search {
+    background-color: hsla(0, 0%, 100%, 0.1);
+    width: 440px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    position: relative;
+
+    &:focus-within {
+        background-color: #34224f;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+}
+
+.search-icon {
+    position: absolute;
+    cursor: pointer;
+    font-size: 20px;
+    top: 6px;
+    left: 10px;
+    color: #dadada;
+    z-index: 9;
+}
+
+.search-input {
+    color: #eee;
+    margin: 0;
+    display: inline-block;
+    width: 90%;
+    font-size: 1.6rem;
+    background-clip: padding-box;
+    position: absolute;
+    top: 2px;
+    bottom: 0;
+    left: 30px;
+    padding: 5px 0;
+    line-height: 34px;
+    background-color: transparent;
+    padding-left: 8px;
+
+    &::placeholder {
+        color: #dadada;
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: 20px;
+    font-size: 1.6rem;
+    background-color: transparent;
+    color: #eee;
+}
+
+.tippy {
+    z-index: 9999;
+}
+
+.search-result {
+    position: relative;
+}
+
+.loading {
+    animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.artist-header {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 10px 8px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.result-clear {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #c273ed;
+    background-color: transparent;
+    cursor: pointer;
+}

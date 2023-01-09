@@ -1,0 +1,67 @@
+.inner {
+    padding: 0 59px;
+    // display: flex;
+    height: 100%;
+    color: white;
+    position: relative;
+}
+
+.bg-thumb,
+.bg-alpha,
+.bg-alpha-1 {
+    margin: 0 -59px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 380px;
+    z-index: 0;
+}
+
+.bg-thumb {
+    background: url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.8.17/static/media/new-release-bg.73d8f976.jpg)
+        top/cover no-repeat;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.bg-alpha {
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 37%, #170f23);
+}
+
+.bg-alpha-1 {
+    opacity: 0.8;
+    background-image: linear-gradient(180deg, #170f23, #170f23);
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    padding-top: 170px;
+    margin-bottom: 25px;
+}
+
+.header-title {
+    font-size: 4rem;
+    color: #feffff;
+    text-shadow: 0 1px 4px rgb(0 0 0 / 16%);
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}
+
+.header-play {
+    width: 40px;
+    height: 40px;
+    background-color: #feffff;
+    border-color: #feffff;
+    font-weight: 400;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.8rem;
+    color: #9b4de0;
+    border-radius: 999px;
+    margin-left: 12px;
+}

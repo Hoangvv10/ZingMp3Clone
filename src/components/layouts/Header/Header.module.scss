@@ -1,0 +1,41 @@
+.wrapper {
+    position: fixed;
+    left: 240px;
+    top: 0;
+    right: 330px;
+    height: 70px;
+    z-index: 10;
+    min-width: 660px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 70px;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        z-index: 1;
+        -webkit-backdrop-filter: blur(50px);
+        backdrop-filter: blur(50px);
+        width: 100%;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.is-sticky::before {
+    background-color: rgba(23, 15, 35, 0.8);
+    bottom: 0 !important;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 59px;
+}
+
+.action {
+    background-color: transparent;
+    z-index: 2;
+}

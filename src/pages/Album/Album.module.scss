@@ -1,0 +1,199 @@
+.inner {
+    margin-top: 60px;
+    padding: 60px 59px 0;
+    display: flex;
+    height: 100%;
+}
+
+.left {
+    width: 300px;
+}
+
+.album-thumnail {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 5px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.thumbnail-rotate {
+    transition: rotate360 linear 1s infinity;
+    -webkit-animation: spin 10s linear infinite;
+    -moz-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+    border-radius: 50%;
+}
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.album-img {
+    width: 100%;
+    transition: 0.4s all linear;
+    cursor: pointer;
+}
+
+.album-img:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+.album-img:hover ~ .play-hover {
+    display: block;
+}
+
+.play-hover,
+.playing-icon {
+    text-align: center;
+    line-height: 45px;
+    font-size: 1.8rem;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 135px;
+    left: 128px;
+    color: #fff;
+    border-radius: 50%;
+    border: #fff solid 1px;
+    display: none;
+    cursor: pointer;
+}
+
+.playing-icon {
+    background-image: url(https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/icon-playing.gif);
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 50%;
+    display: block;
+}
+
+.media-content {
+    margin-top: 12px;
+    color: hsla(0, 0%, 100%, 0.5);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.play-all {
+    border-radius: 999px;
+    margin: 0 auto;
+    padding: 9px 24px;
+    display: flex;
+    align-items: center;
+    background-color: #9b4de0;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.icon-play {
+    margin-right: 5px;
+    font-size: 1.6rem;
+}
+
+.level {
+    text-align: center;
+    width: 100%;
+}
+
+// Right
+
+.preface {
+    color: hsla(0, 0%, 100%, 0.5);
+    padding-right: 8px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 0;
+    text-transform: none;
+    width: 100%;
+    color: #fff;
+}
+
+.artists,
+.like,
+.date {
+    font-size: 1.2rem;
+    line-height: 1.75;
+}
+
+.right {
+    width: 902px;
+    margin-left: 30px;
+    color: #fff;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    white-space: normal;
+}
+
+.header {
+    display: flex;
+    padding: 10px;
+    min-height: 46px;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.05);
+    font-size: 1.2rem;
+    line-height: 2;
+    font-weight: 400;
+    color: hsla(0, 0%, 100%, 0.5);
+    border-radius: 4px;
+}
+
+.media-left {
+    width: 50%;
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.media-mid {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.list-sort {
+    margin-right: 10px;
+}
+
+.bottom-info {
+    font-size: 12px;
+    color: hsla(0, 0%, 100%, 0.5);
+    margin-top: 4px;
+}
+
+.bottom-info span:first-child {
+    margin-left: 0;
+}
+
+.bottom-info span {
+    margin: 0 8px;
+}
