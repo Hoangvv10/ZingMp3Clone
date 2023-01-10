@@ -3,6 +3,7 @@ import styles from './AcountItem.module.scss';
 import { useDispatch } from 'react-redux';
 
 import * as actions from '~/store/actions';
+import { memo } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -54,4 +55,4 @@ function AcountItem({ data }) {
     );
 }
 
-export default AcountItem;
+export default memo(AcountItem);

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Dashboard from '../Dashboard';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
@@ -7,9 +7,9 @@ import SidePlayer from '../SidePlayer';
 function DefaultLayout({ children }) {
     const [isScroll, setIsScroll] = useState(true);
 
-    const handleScroll = (e) => {
+    const handleScroll = useCallback((e) => {
         setIsScroll(e.currentTarget.scrollTop < 300);
-    };
+    }, []);
 
     useEffect(() => {
         const container = document.querySelector('.container');

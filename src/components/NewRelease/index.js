@@ -19,8 +19,6 @@ function NewRelease() {
     const [isActive, setIsActive] = useState(0);
     const [releaseList, setReleaseList] = useState(null);
 
-    console.log(releaseWorldwide);
-
     const dispatch = useDispatch();
 
     useEffect(() => {

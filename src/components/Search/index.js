@@ -1,7 +1,7 @@
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faTimes, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useDebounced } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 
@@ -16,11 +16,11 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(false);
-    const [loading, setLoading] = useState(false);
-
-    const clearLoading = useRef();
+    // const [loading, setLoading] = useState(false);
 
     const debounced = useDebounced(searchValue, 500);
+
+    console.log('search-render');
 
     useEffect(() => {
         const fetchSearchData = async () => {
@@ -30,9 +30,9 @@ function Search() {
         fetchSearchData();
     }, [debounced]);
 
-    const handleClear = () => {
-        setSearchValue('');
-    };
+    // const handleClear = useCallback(() => {
+    //     setSearchValue('');
+    // }, []);
 
     const inputRef = useRef();
 
@@ -50,7 +50,6 @@ function Search() {
                         <div className="search-result" tabIndex="-1" {...attrs}>
                             <header className={cx('artist-header')}>
                                 <p>Bài hát</p>
-                                <button className={cx('result-clear')}>Xóa</button>
                             </header>
                             <div className={cx('artist-body')}>
                                 <AcountItem data={searchResult.songs} />
@@ -59,7 +58,6 @@ function Search() {
                         <div className="search-result" tabIndex="-1" {...attrs}>
                             <header className={cx('artist-header')}>
                                 <p>Nghệ sĩ</p>
-                                <button className={cx('result-clear')}>Xóa</button>
                             </header>
                             <div className={cx('artist-body')}>
                                 <AcountItem data={searchResult.artists} />
@@ -81,20 +79,20 @@ function Search() {
                         onChange={(e) => setSearchValue(e.target.value)}
                         onFocus={() => setShowResult(true)}
                     />
-                    {!!debounced && !loading && (
-                        <button onClick={handleClear} className={cx('clear')}>
-                            <FontAwesomeIcon icon={faTimes} />
-                        </button>
-                    )}
-                    {loading && (
+
+                    <button onClick={(e) => setSearchValue((e.target.value = ''))} className={cx('clear')}>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </button>
+
+                    {/* {loading && (
                         <button className={cx('loading')}>
                             <FontAwesomeIcon icon={faSpinner} />
                         </button>
-                    )}
+                    )} */}
                 </form>
             </Tippy>
         </div>
     );
 }
 
-export default Search;
+export default memo(Search);
