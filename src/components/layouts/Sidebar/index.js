@@ -91,7 +91,7 @@ function Sidebar() {
                             <li
                                 className={cx({
                                     list: true,
-                                    active: window.location.href === `http://localhost:3000${data.navigate}`,
+                                    active: window.location.pathname === data.navigate,
                                 })}
                                 key={index}
                             >
