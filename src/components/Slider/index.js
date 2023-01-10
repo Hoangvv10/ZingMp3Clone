@@ -1,63 +1,33 @@
 import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getArrSlider } from '~/ultis';
 import styles from './Slider.module.scss';
 import * as actions from '~/store/actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
 function Slider() {
-    const { banner, playing } = useSelector((state) => state.app);
+    const [curImg, setCurImg] = useState(1);
+
+    const setIntervalId = useRef();
+
+    const { banner } = useSelector((state) => state.app);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const sliderEls = document.getElementsByClassName('gallery-item');
-        let min = 0;
-        let max = 2;
-        const intervalId = setInterval(() => {
-            const list = getArrSlider(min, max, sliderEls.length - 1);
-            for (let i = 0; i < sliderEls.length; i++) {
-                // Delete classnames (css)
-                // sliderEls[i]?.classList?.remove(slideRight, orderLast);
-                // sliderEls[i]?.classList?.remove(slideLeft, orderFirst);
-                // sliderEls[i]?.classList?.remove(slideLeftTwo, orderTwo);
+    const sliderItemEles = document.querySelectorAll('.js-slider');
 
-                // Hide or Show images
-                if (list.some((item) => item === i)) {
-                    sliderEls[i].style.display = 'block';
-                } else {
-                    sliderEls[i].style.display = 'none';
-                }
-            }
-            // Add animation by adding classnames
+    const handleNextItem = () => {
+        curImg > sliderItemEles?.length - 2 ? setCurImg(0) : setCurImg((prev) => prev + 1);
+    };
 
-            const slideRight = cx('slide-right');
-            const slideLeft = cx('slide-left');
-            const slideLeftTwo = cx('slide-left-2');
-            const orderFirst = cx('order-first');
-            const orderLast = cx('order-last');
-            const orderTwo = cx('order-two');
-
-            list.forEach((item) => {
-                if (item === max) {
-                    sliderEls[item]?.classList?.add(slideRight, orderLast);
-                } else if (item === min) {
-                    sliderEls[item]?.classList?.add(slideLeft, orderFirst);
-                } else {
-                    sliderEls[item]?.classList?.add(slideLeftTwo, orderTwo);
-                }
-            });
-            min = min === sliderEls.length - 1 ? 0 : min + 1;
-            max = max === sliderEls.length - 1 ? 0 : max + 1;
-        }, 3000);
-        return () => {
-            intervalId && clearInterval(intervalId);
-        };
-    }, []);
+    const handlePrevItem = () => {
+        curImg === 0 ? setCurImg(sliderItemEles?.length - 1) : setCurImg((prev) => prev - 1);
+    };
 
     const handleClickBanner = (item) => {
         if (item?.type === 1) {
@@ -70,6 +40,14 @@ function Slider() {
         }
     };
 
+    useEffect(() => {
+        setIntervalId.current = setTimeout(() => {
+            handleNextItem();
+        }, 4000);
+
+        return setIntervalId && clearTimeout(setIntervalId);
+    }, [curImg]);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -79,9 +57,31 @@ function Slider() {
                             key={item.encodeId}
                             src={item.banner}
                             onClick={() => handleClickBanner(item)}
-                            className={`gallery-item ${index <= 2 ? 'block' : 'hidden'}`}
+                            // className={`gallery-item ${index <= 2 ? 'block' : 'hidden'}`}
+                            className={cx({
+                                'gallery-item': true,
+                                'js-slider': true,
+                                first: curImg - 2 < 0 ? index === sliderItemEles?.length - 2 : index === curImg - 2,
+                                previous: curImg - 1 < 0 ? index === sliderItemEles?.length - 1 : index === curImg - 1,
+                                selected: curImg === index,
+                                next: curImg > sliderItemEles?.length - 2 ? index === 0 : index === curImg + 1,
+                                last:
+                                    curImg > sliderItemEles?.length - 2
+                                        ? index === 1
+                                        : curImg > sliderItemEles?.length - 3
+                                        ? index === 0
+                                        : index === curImg + 2,
+                            })}
+                            dataindex={index}
                         />
                     ))}
+
+                    <div className={cx('left')} onClick={handlePrevItem}>
+                        <FontAwesomeIcon icon={faAngleLeft} />
+                    </div>
+                    <div className={cx('right')} onClick={handleNextItem}>
+                        <FontAwesomeIcon icon={faAngleRight} />
+                    </div>
                 </div>
             </div>
         </div>

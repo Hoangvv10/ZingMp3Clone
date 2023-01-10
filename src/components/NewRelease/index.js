@@ -19,7 +19,7 @@ function NewRelease() {
     const [isActive, setIsActive] = useState(0);
     const [releaseList, setReleaseList] = useState(null);
 
-    const s = moment.unix('1672578000').fromNow();
+    console.log(releaseWorldwide);
 
     const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ function NewRelease() {
         };
 
         setReleaseAll(resizeArray(release?.all, 12));
-        setReleaseWorldwide(resizeArray(release?.others, 12));
+        setReleaseWorldwide(resizeArray(release?.others, 11));
         setReleaseVpop(resizeArray(release?.vPop, 12));
     }, [release]);
     return (
