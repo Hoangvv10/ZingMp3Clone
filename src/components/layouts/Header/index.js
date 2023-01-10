@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { faPalette, faArrowUpFromBracket, faGear, faGem, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,7 @@ import Search from '~/components/Search';
 const cx = classNames.bind(styles);
 
 function Header({ isScroll }) {
+    console.log('header-render');
     return (
         <header
             className={cx({
@@ -18,7 +19,7 @@ function Header({ isScroll }) {
             })}
         >
             <div className={cx('inner')}>
-                <Search isScroll={isScroll} />
+                <Search />
 
                 <div className={cx('action')}>
                     <Action title="Chủ đề" body={<FontAwesomeIcon icon={faPalette} />} />
@@ -32,4 +33,4 @@ function Header({ isScroll }) {
     );
 }
 
-export default Header;
+export default memo(Header);
