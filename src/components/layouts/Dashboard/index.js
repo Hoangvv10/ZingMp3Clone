@@ -35,7 +35,7 @@ function Dashboard() {
     const volumeRef = useRef();
     const volumeDownRef = useRef();
     const volumeKnobRef = useRef();
-    const intervalId = useRef();
+    let intervalId = useRef();
 
     useEffect(() => {
         const fetchDetailSong = async () => {
@@ -56,7 +56,7 @@ function Dashboard() {
     }, [curSongId]);
 
     useEffect(() => {
-        intervalId && clearInterval(intervalId);
+        intervalId.current && clearInterval(intervalId.current);
         audio.pause();
         audio.load();
         if (isPlay) {
