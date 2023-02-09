@@ -36,18 +36,6 @@
     padding: 0 15px;
 }
 
-.order-first {
-    order: -9999;
-}
-
-.order-last {
-    order: 9999;
-}
-
-.order-two {
-    order: 2;
-}
-
 .gallery:hover .left,
 .gallery:hover .right {
     display: block;

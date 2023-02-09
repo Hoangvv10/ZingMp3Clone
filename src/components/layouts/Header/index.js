@@ -10,7 +10,6 @@ import Search from '~/components/Search';
 const cx = classNames.bind(styles);
 
 function Header({ isScroll }) {
-    console.log('header-render');
     return (
         <header
             className={cx({
