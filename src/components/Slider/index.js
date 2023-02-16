@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
 
 import styles from './Slider.module.scss';
 import * as actions from '~/store/actions';
@@ -74,7 +75,7 @@ function Slider() {
                             })}
                             dataindex={index}
                         />
-                    ))}
+                    )) || <Skeleton />}
 
                     <div className={cx('left')} onClick={handlePrevItem}>
                         <FontAwesomeIcon icon={faAngleLeft} />

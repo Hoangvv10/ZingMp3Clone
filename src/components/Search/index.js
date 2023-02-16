@@ -1,7 +1,7 @@
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faTimes, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { faMagnifyingGlass, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { memo, useEffect, useRef, useState } from 'react';
 import { useDebounced } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 
@@ -20,8 +20,6 @@ function Search() {
 
     const debounced = useDebounced(searchValue, 500);
 
-    console.log('search-render');
-
     useEffect(() => {
         const fetchSearchData = async () => {
             const res = await apis.getSearchData(debounced);
@@ -29,10 +27,6 @@ function Search() {
         };
         fetchSearchData();
     }, [debounced]);
-
-    // const handleClear = useCallback(() => {
-    //     setSearchValue('');
-    // }, []);
 
     const inputRef = useRef();
 
@@ -80,7 +74,13 @@ function Search() {
                         onFocus={() => setShowResult(true)}
                     />
 
-                    <button onClick={(e) => setSearchValue((e.target.value = ''))} className={cx('clear')}>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setSearchValue((e.target.value = ''));
+                        }}
+                        className={cx('clear')}
+                    >
                         <FontAwesomeIcon icon={faTimes} />
                     </button>
 

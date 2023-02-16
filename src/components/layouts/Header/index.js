@@ -21,11 +21,11 @@ function Header({ isScroll }) {
                 <Search />
 
                 <div className={cx('action')}>
-                    <Action title="Chủ đề" body={<FontAwesomeIcon icon={faPalette} />} />
-                    <Action title="Nâng cấp VIP" body={<FontAwesomeIcon icon={faGem} />} />
-                    <Action title="Tải lên" body={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />
-                    <Action title="Cài đặt" body={<FontAwesomeIcon icon={faGear} />} />
-                    <Action title="Đăng nhập" body={<FontAwesomeIcon icon={faUser} />} />
+                    <Action title="Chức năng đang phát triển" body={<FontAwesomeIcon icon={faPalette} />} />
+                    <Action title="Chức năng đang phát triển" body={<FontAwesomeIcon icon={faGem} />} />
+                    <Action title="Chức năng đang phát triển" body={<FontAwesomeIcon icon={faArrowUpFromBracket} />} />
+                    <Action title="Chức năng đang phát triển" body={<FontAwesomeIcon icon={faGear} />} />
+                    <Action title="Chức năng đang phát triển" body={<FontAwesomeIcon icon={faUser} />} />
                 </div>
             </div>
         </header>
